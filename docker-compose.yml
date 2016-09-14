@@ -1,0 +1,16 @@
+version: '2'
+services:
+  web-client:
+    image: node:6.5.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web-client:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm start\""
+  web-api:
+    image: node:6.5.0
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./web-api:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && npm install && node app.js\""
