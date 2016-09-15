@@ -8,7 +8,7 @@ Development repository for the okcollege predictive AI high school counselor pro
 
 * `git`
 * `docker`
-* `docker-compose` (this can usually be installed with `pip install docker-compose` or `apt install docker-compose`)
+* [`docker-compose`](https://docs.docker.com/compose/install/)
 
 
 ### Running the project
