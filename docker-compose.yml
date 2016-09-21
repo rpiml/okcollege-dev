@@ -6,7 +6,8 @@ services:
       - "3000"
     volumes:
       - ./web-client:/usr/src/app
-    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm run build:dll && npm start\""
+      - ./assets:/usr/src/app/assets
+    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm start\""
     depends_on:
       - web-api
   web-api:
@@ -15,11 +16,14 @@ services:
       - "3001"
     volumes:
       - ./web-api:/usr/src/app
+      - ./assets:/usr/src/app/assets
     command: "/bin/bash -c \"cd /usr/src/app && npm run build && npm run start\""
     depends_on:
       - postgres
   postgres:
     image: postgres
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
   nginx:
     image: nginx
     ports:
