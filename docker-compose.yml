@@ -2,6 +2,7 @@ version: '2'
 services:
   web-client:
     image: node:6.5.0
+    net: "host"
     expose:
       - "3000"
     volumes:
@@ -12,6 +13,7 @@ services:
       - web-api
   web-api:
     image: node:6.5.0
+    net: "host"
     expose:
       - "3001"
     volumes:
@@ -22,10 +24,12 @@ services:
       - postgres
   postgres:
     image: postgres
+    net: "host"
     volumes:
       - ./dbdata:/var/lib/postgresql/data
   nginx:
     image: nginx
+    net: "host"
     ports:
       - "3000:3000"
     volumes:
@@ -33,3 +37,4 @@ services:
     depends_on:
       - web-api
       - web-client
+
