@@ -11,7 +11,7 @@
       "next": "activites"
     },
     {
-      "id": "activities",
+      "id": "activites",
       "questions": [{
         "id": "sports",
         "question": "What sports do you play?",
