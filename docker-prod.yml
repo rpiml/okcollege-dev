@@ -12,6 +12,8 @@ services:
       - web-api
   web-api:
     image: node:6.5.0
+    enviroment:
+      - PG_HOST='postgres'
     expose:
       - "3001"
     volumes:
