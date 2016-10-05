@@ -8,7 +8,7 @@ services:
     volumes:
       - ./web-client:/usr/src/app
       - ./assets:/usr/src/app/assets
-    command: "/bin/bash -c \"cd /usr/src/app && npm start\""
+    command: "/bin/bash -c \"cd /usr/src/app && npm run build:dll && npm start\""
     depends_on:
       - web-api
   web-api:
