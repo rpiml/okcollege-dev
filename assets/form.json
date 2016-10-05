@@ -9,7 +9,7 @@
         "range": [0,5]
       },{
         "id": "plan-of-study",
-        "question": "What did you study?",
+        "question": "What was your major?",
         "type": "multi-choice",
         "answers": ["Business", "Psychology", "Nursing", "Computer Science", "Science / Engineering", "Communications", "Other"]
       },{
@@ -60,9 +60,9 @@
       "questions": [{
         "id": "sports",
         "question": "What sports do you play?",
-        "type": "multi-choice-dropdown",
+        "type": "multi-choice",
         "hasOther": true,
-        "answers": ["Football", "Track & Field", "Basketball", ["Baseball", "Soccer", "Wrestling", "Cross Country", "Tennis", "Golf", "Swimming & Diving", "Other"]]
+        "answers": ["Football", "Track & Field", "Basketball", "Baseball", "Soccer", "Wrestling", "Cross Country", "Other"]
       },{
           "id": "clubs",
           "question": "Are you in any clubs?",
