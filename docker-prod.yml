@@ -17,6 +17,8 @@ services:
     volumes:
       - ./web-api:/usr/src/app
       - ./assets:/usr/src/app/assets
+    environment:
+      - PG_HOST=postgres
     command: "/bin/bash -c \"cd /usr/src/app && npm run build && npm run start\""
     depends_on:
       - postgres
