@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker exec -it okcollegedev_web-api_1 bash -c "cd /usr/src/app && bash"
