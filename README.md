@@ -1,4 +1,6 @@
-# okcollege-dev
+<img src="https://cloud.githubusercontent.com/assets/1910070/19412182/26d80642-92de-11e6-83bf-039eaec7fac1.png"/>
+
+# OkCollege Development Repository
 
 Development repository for the okcollege predictive AI high school counselor project.
 
