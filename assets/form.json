@@ -6,7 +6,8 @@
             "id": "years-in-college",
             "question": "How many years of college have you completed?",
             "type": "slider",
-            "range": [0, 5]
+            "range": [0, 5],
+            "step": 0.5
         }, {
             "id": "plan-of-study",
             "question": "What was your major?",
@@ -17,7 +18,8 @@
             "id": "GPA-4",
             "question": "What was your GPA on a 4.0 scale (unweighted)?",
             "type": "slider",
-            "range": [0, 4]
+            "range": [0, 4],
+            "step": 0.05
         }, {
             "id": "favorite-class",
             "question": "What was your favorite class in high school?",
