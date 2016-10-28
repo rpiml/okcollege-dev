@@ -5,5 +5,5 @@
 	path = web-api
 	url = git@github.com:rpiml/okcollege-web-api.git
 [submodule "okcollege-preprocessor"]
-	path = okcollege-preprocessor
+	path = preprocessor
 	url = https://github.com/rpiml/okcollege-preprocessor
