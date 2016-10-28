@@ -32,7 +32,9 @@ pages:
     - History
     - Science
     - Art
-  next:       scores
+  next:
+    - condition: true
+      page: scores
 - id:         scores
   questions:
   - id:       SAT-or-ACT
@@ -67,7 +69,9 @@ pages:
     question: What were your SAT 2 scores?
     type:     slider
     range:    [200,800]
-  next:       activites
+  next:
+    - condition: true
+      page: activities
 - id:         activities
   questions:
   - id:       sports
@@ -89,7 +93,9 @@ pages:
     - Yes
     - No
     - Maybe? It might've been a gang. Really not sure about that one...
-  next:       awards-and-jobs
+  next:
+    - condition: true
+      page: awards-and-jobs
 - id:         awards-and-jobs
   questions:
   - id:       awards
@@ -106,4 +112,6 @@ pages:
     question: How many internships did you have?
     type:     slider
     range:    [0,4]
-    next:     done
+    next:
+    - condition: true
+      page: done

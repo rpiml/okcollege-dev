@@ -20,9 +20,11 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; questions
 
-3). A next attribute with the next page's id:
+3). An array next of conditions and next page's id:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; next
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; condition: "conditional statement with question-id(s)"
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; page: next-page-id
 
 ##### Each question in the array of questions has:
  1). A question id attribute:
