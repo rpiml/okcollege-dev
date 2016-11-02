@@ -29,6 +29,11 @@ services:
     network_mode: host
     volumes:
       - ./dbdata:/var/lib/postgresql/data
+  redis:
+    image: redis:alpine
+    network_mode: host
+    ports:
+      - "6379:6379"
   nginx:
     image: nginx
     network_mode: host
