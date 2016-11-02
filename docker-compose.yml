@@ -24,11 +24,15 @@ services:
     command: "/bin/bash -c \"cd /usr/src/app && npm install && npm run build && npm run init && npm run start\""
     depends_on:
       - postgres
+      - redis
   postgres:
     image: postgres
     network_mode: host
     volumes:
       - ./dbdata:/var/lib/postgresql/data
+  redis:
+    image: redis:alpine
+    network_mode: host
   nginx:
     image: nginx
     network_mode: host
