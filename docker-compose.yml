@@ -33,6 +33,11 @@ services:
   redis:
     image: redis:alpine
     network_mode: host
+  training-preprocessor:
+    image: python:2.7
+    network_mode: host
+    volumes:
+      - ./training-preprocessor:/usr/src/app
   nginx:
     image: nginx
     network_mode: host
