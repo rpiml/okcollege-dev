@@ -35,6 +35,14 @@ services:
     network_mode: host
     ports:
       - "6379:6379"
+  rabbitmq:
+    image: rabbitmq:3-management
+    network_mode: host
+    env_file: development.env
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "25672:25672"
   nginx:
     image: nginx
     network_mode: host
