@@ -34,10 +34,15 @@ services:
     image: redis:alpine
     network_mode: host
   training-preprocessor:
-    image: python:2.7
+    image: python:3.5
     network_mode: host
     volumes:
+      - ./assets:/usr/src/app/assets
       - ./training-preprocessor:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && pip install -r requirements.txt && python preprocessor.py\""
+    depends_on:
+      - postgres
+      - redis
   nginx:
     image: nginx
     network_mode: host
