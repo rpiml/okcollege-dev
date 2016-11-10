@@ -33,12 +33,12 @@ services:
   redis:
     image: redis:alpine
     network_mode: host
-  training-preprocessor:
+  survey-training-preprocessor:
     image: python:3.5
     network_mode: host
     volumes:
       - ./assets:/usr/src/app/assets
-      - ./training-preprocessor:/usr/src/app
+      - ./okcollege-survey-training-preprocessor:/usr/src/app
     command: "/bin/bash -c \"cd /usr/src/app && pip install -r requirements.txt && python preprocessor.py\""
     depends_on:
       - postgres
