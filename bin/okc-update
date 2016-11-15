@@ -4,5 +4,8 @@ cd "$(dirname "$0")"
 cd ..
 git pull origin master
 cd web-api && git pull origin master
+cd ..
 cd web-client && git pull origin master
+cd ..
 cd college-db-init && git pull origin master
+cd ..
