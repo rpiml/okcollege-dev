@@ -25,6 +25,17 @@ services:
     depends_on:
       - postgres
       - redis
+  ml-predictor:
+    image: node:6.5.0
+    network_mode: host
+    environment:
+      - PG_HOST=localhost
+    volumes:
+      - ./ml-predictor:/usr/src/app
+    working_dir: /usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm run build && npm run start\""
+    depends_on:
+      - rabbitmq
   postgres:
     image: postgres
     network_mode: host
