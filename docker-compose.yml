@@ -38,6 +38,8 @@ services:
   survey-training-preprocessor:
     image: python:3.5
     network_mode: host
+    tty: true
+    privileged: true
     volumes:
       - ./assets:/usr/src/app/assets
       - ./okcollege-survey-training-preprocessor:/usr/src/app
