@@ -38,12 +38,10 @@ services:
   survey-training-preprocessor:
     image: python:3.5
     network_mode: host
-    tty: true
-    privileged: true
     volumes:
       - ./assets:/usr/src/app/assets
       - ./okcollege-survey-training-preprocessor:/usr/src/app
-    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python preprocessor.py\""
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u preprocessor.py\""
     depends_on:
       - postgres
       - redis
@@ -72,7 +70,7 @@ services:
     volumes:
       - ./assets:/usr/src/app/assets
       - ./okcollege-college-training-preprocessor:/usr/src/app
-    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python college_preprocessor.py\""
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u college_preprocessor.py\""
     depends_on:
       - postgres
       - redis
