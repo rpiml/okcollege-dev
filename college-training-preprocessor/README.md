@@ -1,1 +1,0 @@
-# okcollege-college-training-preprocessor

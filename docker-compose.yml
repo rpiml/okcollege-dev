@@ -71,7 +71,7 @@ services:
     network_mode: host
     volumes:
       - ./assets:/usr/src/app/assets
-      - ./college-training-preprocessor:/usr/src/app
+      - ./okcollege-college-training-preprocessor:/usr/src/app
     command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python college_preprocessor.py\""
     depends_on:
       - postgres
