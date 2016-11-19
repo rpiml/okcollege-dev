@@ -154,23 +154,9 @@
         }],
         "next": [{
             "condition": true,
-            "next": "SAT2"
-        }]
-    }, {
-        "id": "SAT2",
-        "questions": [{
-            "id": "Which SAT II subject tests did you take?",
-            "question": "How many years of college have you completed?",
-            "type": "multi-choice",
-            "hasOther": false,
-            "answers": ["U.S History", "World History", "Biology", "Physics", "Chemistry", "Math 1", "Math 2", "Physics", "Chemistry", "Literature", "Spanish", "Spanish with Listening", "German", "German with Listening", "French", "French with Listening", "Hebrew", "Latin", "Chinese with Listening", "Japanese with Listening", "Italian", "Korean with Listening"]
-        }],
-        "next": [{
-            "condition": true,
             "next": "miscellaneous"
         }]
-    }]
-}, {
+    }, {
         "id": "miscellaneous",
         "questions": [{
             "id": "favorite-class",
@@ -245,3 +231,4 @@
         }]
     }]
 }
+
