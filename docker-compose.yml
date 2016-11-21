@@ -46,6 +46,8 @@ services:
       - postgres
       - redis
       - rabbitmq
+    environment:
+      - PG_HOST=localhost
   rabbitmq:
     image: rabbitmq:3-management
     network_mode: host
