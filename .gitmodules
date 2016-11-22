@@ -10,3 +10,9 @@
 [submodule "ml-predictor"]
 	path = ml-predictor
 	url = git@github.com:rpiml/okcollege-ml-predictor.git
+[submodule "web-api"]
+	path = web-api
+	url = git@github.com:rpiml/okcollege-web-api.git
+[submodule "web-client"]
+	path = web-client
+	url = git@github.com:rpiml/okcollege-web-client.git
