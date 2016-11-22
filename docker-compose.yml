@@ -25,6 +25,17 @@ services:
     depends_on:
       - postgres
       - redis
+  ml-predictor:
+    image: node:6.5.0
+    network_mode: host
+    environment:
+      - PG_HOST=localhost
+    volumes:
+      - ./ml-predictor:/usr/src/app
+    working_dir: /usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm run build && npm run start\""
+    depends_on:
+      - rabbitmq
   postgres:
     image: postgres
     network_mode: host
@@ -40,7 +51,7 @@ services:
     network_mode: host
     volumes:
       - ./assets:/usr/src/app/assets
-      - ./okcollege-survey-training-preprocessor:/usr/src/app
+      - ./survey-training-preprocessor:/usr/src/app
     command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u preprocessor.py\""
     depends_on:
       - postgres
@@ -71,7 +82,7 @@ services:
     network_mode: host
     volumes:
       - ./assets:/usr/src/app/assets
-      - ./okcollege-college-training-preprocessor:/usr/src/app
+      - ./college-training-preprocessor:/usr/src/app
     command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u college_preprocessor.py\""
     depends_on:
       - postgres
@@ -79,3 +90,15 @@ services:
       - rabbitmq
     environment:
       - PG_HOST=localhost
+  predictor-preprocessor:
+    image: python:3.5
+    network_mode: host
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./predictor-preprocessor:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u predictor-preprocessor.py\""
+    depends_on:
+      - redis
+      - rabbitmq
+      - survey-training-preprocessor
+      - ml-predictor

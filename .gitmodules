@@ -4,3 +4,12 @@
 [submodule "web-api"]
 	path = web-api
 	url = git@github.com:rpiml/okcollege-web-api.git
+[submodule "predictor-preprocessor"]
+	path = predictor-preprocessor
+	url = git@github.com:rpiml/okcollege-predictor-preprocessor.git
+[submodule "college-training-preprocessor"]
+	path = college-training-preprocessor
+	url = git@github.com:rpiml/okcollege-college-training-preprocessor.git
+[submodule "survey-training-preprocessor"]
+	path = survey-training-preprocessor
+	url = git@github.com:rpiml/okcollege-survey-training-preprocessor.git
