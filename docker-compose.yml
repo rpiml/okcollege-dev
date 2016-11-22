@@ -46,13 +46,26 @@ services:
     network_mode: host
     ports:
       - "6379:6379"
+  survey-training-preprocessor:
+    image: python:3.5
+    network_mode: host
+    tty: true
+    privileged: true
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./okcollege-survey-training-preprocessor:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python preprocessor.py\""
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
   rabbitmq:
     image: rabbitmq:3-management
     network_mode: host
     env_file: development.env
     ports:
       - "5672:5672"
-      - "15672:15672"
+      - "15672:15672" # RabbitMQ GUI server
       - "25672:25672"
   nginx:
     image: nginx
