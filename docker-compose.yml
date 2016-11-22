@@ -46,13 +46,26 @@ services:
     network_mode: host
     ports:
       - "6379:6379"
+  survey-training-preprocessor:
+    image: python:3.5
+    network_mode: host
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./survey-training-preprocessor:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u preprocessor.py\""
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+    environment:
+      - PG_HOST=localhost
   rabbitmq:
     image: rabbitmq:3-management
     network_mode: host
     env_file: development.env
     ports:
       - "5672:5672"
-      - "15672:15672"
+      - "15672:15672" # RabbitMQ GUI server
       - "25672:25672"
   nginx:
     image: nginx
@@ -64,3 +77,28 @@ services:
     depends_on:
       - web-client
       - web-api
+  college-training-preprocessor:
+    image: python:2.7
+    network_mode: host
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./college-training-preprocessor:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u college_preprocessor.py\""
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+    environment:
+      - PG_HOST=localhost
+  predictor-preprocessor:
+    image: python:3.5
+    network_mode: host
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./predictor-preprocessor:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u predictor-preprocessor.py\""
+    depends_on:
+      - redis
+      - rabbitmq
+      - survey-training-preprocessor
+      - ml-predictor
