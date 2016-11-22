@@ -1,9 +1,3 @@
-[submodule "web-client"]
-	path = web-client
-	url = git@github.com:rpiml/okcollege-web-client.git
-[submodule "web-api"]
-	path = web-api
-	url = git@github.com:rpiml/okcollege-web-api.git
 [submodule "predictor-preprocessor"]
 	path = predictor-preprocessor
 	url = git@github.com:rpiml/okcollege-predictor-preprocessor.git
@@ -13,3 +7,6 @@
 [submodule "survey-training-preprocessor"]
 	path = survey-training-preprocessor
 	url = git@github.com:rpiml/okcollege-survey-training-preprocessor.git
+[submodule "ml-predictor"]
+	path = ml-predictor
+	url = git@github.com:rpiml/okcollege-ml-predictor.git

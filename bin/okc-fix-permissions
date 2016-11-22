@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd "$(dirname "$0")"
+cd ..
+
+export USERNAME="$(whoami)"
+
+if [ -z "$USERNAME" ]; then
+    echo "Please enter username:"
+    read USERNAME
+fi
+
+echo "Executing \"sudo chown -R $USERNAME .\"";
+sudo chown -R $USERNAME .
