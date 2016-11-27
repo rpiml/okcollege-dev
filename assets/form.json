@@ -28,8 +28,8 @@
             "step": 0.1
         }],
         "next": [{
-            "condition": true,
-            "next": "college-stats"
+            "condition": "true",
+            "page": "college-stats"
         }]
     }, {
         "id": "college-stats",
@@ -65,8 +65,8 @@
             "answers": ["Northwest", "MidWest", "Northeast", "South", "Southwest"]
         }],
         "next": [{
-            "condition": true,
-            "next": "SAT"
+            "condition": "true",
+            "page": "SAT"
         }]
     }, {
         "id": "SAT",
@@ -78,8 +78,8 @@
             "answers": ["yes", "no"]
         }],
         "next": [{
-            "condition": true,
-            "next": "SAT-scores"
+            "condition": "true",
+            "page": "SAT-scores"
         }]
     }, {
         "id": "SAT-scores",
@@ -103,8 +103,8 @@
             "step": 10
         }],
         "next": [{
-            "condition": true,
-            "next": "ACT"
+            "condition": "true",
+            "page": "ACT"
         }]
     }, {
         "id": "ACT",
@@ -116,8 +116,8 @@
             "answers": ["yes", "no"]
         }],
         "next": [{
-            "condition": true,
-            "next": "ACT-scores"
+            "condition": "true",
+            "page": "ACT-scores"
         }]
     }, {
         "id": "ACT-scores",
@@ -153,8 +153,8 @@
             "step": 10
         }],
         "next": [{
-            "condition": true,
-            "next": "miscellaneous"
+            "condition": "true",
+            "page": "miscellaneous"
         }]
     }, {
         "id": "miscellaneous",
@@ -196,8 +196,8 @@
             "step": 1
         }],
         "next": [{
-            "condition": true,
-            "next": "preferences"
+            "condition": "true",
+            "page": "preferences"
         }]
     }, {
         "id": "preferences",
@@ -226,9 +226,8 @@
             "range": [0, 5]
         }],
         "next": [{
-            "condition": true,
-            "next": "done"
+            "condition": "true",
+            "page": "done"
         }]
     }]
 }
-
