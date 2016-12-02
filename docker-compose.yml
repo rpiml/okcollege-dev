@@ -14,8 +14,7 @@ services:
   web-api:
     image: node:6.5.0
     network_mode: host
-    environment:
-      - PG_HOST=localhost
+    env_file: development.env
     ports:
       - "3001:3001"
     volumes:
@@ -28,8 +27,7 @@ services:
   ml-predictor:
     image: node:6.5.0
     network_mode: host
-    environment:
-      - PG_HOST=localhost
+    env_file: development.env
     volumes:
       - ./ml-predictor:/usr/src/app
     working_dir: /usr/src/app
@@ -57,8 +55,7 @@ services:
       - postgres
       - redis
       - rabbitmq
-    environment:
-      - PG_HOST=localhost
+    env_file: development.env
   rabbitmq:
     image: rabbitmq:3-management
     network_mode: host
@@ -88,8 +85,7 @@ services:
       - postgres
       - redis
       - rabbitmq
-    environment:
-      - PG_HOST=localhost
+    env_file: development.env
   predictor-preprocessor:
     image: python:3.5
     network_mode: host
