@@ -9,3 +9,9 @@ cd web-client && git pull origin master
 cd ..
 cd college-db-init && git pull origin master
 cd ..
+cd college-training-preprocessor && git pull origin master
+cd ..
+cd survey-training-preprocessor && git pull origin master
+cd ..
+cd predictor-preprocessor && git pull origin master
+cd ..
