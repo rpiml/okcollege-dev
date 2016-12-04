@@ -98,3 +98,14 @@ services:
       - rabbitmq
       - survey-training-preprocessor
       - ml-predictor
+  ml-training:
+    image: java:8
+    network_mode: host
+    environment:
+      - PG_HOST=localhost
+    volumes:
+      - ./ml-training:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && java -jar collegematch.jar\""
+    depends_on:
+      - redis
+      - rabbitmq
