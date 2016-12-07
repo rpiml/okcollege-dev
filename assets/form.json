@@ -120,7 +120,7 @@
             "condition": "took-ACT-1 === \"yes\" ",
             "page": "ACT-scores"
         }, {
-            "condition": true,
+            "condition": "true",
             "page": "miscellaneous"
         }]
     }, {
@@ -136,7 +136,7 @@
             "condition": "ACT-2 === \"yes\" ",
             "page": "ACT-scores"
         }, {
-            "condition": true,
+            "condition": "true",
             "page": "miscellaneous"
         }]
     }, {
