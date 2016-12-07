@@ -279,18 +279,15 @@
         }, {
             "id": "college-factors",
             "question": "What do you feel is important when selecting a college?",
-            "type": "choice",
-            "answers": ["This", "Will", "Be", "A", "Textbox", "By", "Friday"]
+            "type": "text"
         }, {
             "id": "high-school-location",
             "question": "Where was your high school located?",
-            "type": "choice",
-            "answers": ["This", "Will", "Be", "A", "Textbox", "By", "Friday"]
+            "type": "text"
         }, {
             "id": "high-school-location",
             "question": "What was the name of your high school?",
-            "type": "choice",
-            "answers": ["This", "Will", "Be", "A", "Textbox", "By", "Friday"]
+            "type": "text"
         }],
         "next": "done"
     }]
