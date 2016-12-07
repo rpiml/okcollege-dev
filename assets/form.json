@@ -272,13 +272,11 @@
             "id": "financial-aid",
             "question": "How important was financial aid in your decision?",
             "type": "choice",
-            "hasOther": true,
             "answers": ["Not at all important", "Slightly Important", "Important", "Fairly Important", "Very Important"]
         }, {
             "id": "job-potential",
             "question": "How important was job potential in your decision?",
             "type": "choice",
-            "hasOther": true,
             "answers": ["Not at all important", "Slightly Important", "Important", "Fairly Important", "Very Important"]
         }, {
             "id": "social-life-importance",
@@ -297,12 +295,14 @@
         "questions": [{
             "id": "academic-satisfaction",
             "question": "How satisfied were you with the academics at your college?",
-            "type": "choice",
+            "type": "slider",
+            "displayType": "satisfaction",
             "answers": ["Not at all", "Somewhat Satisfied", "Satisfied", "Fairly Satisfied", "Very Satisfied"]
         }, {
             "id": "social-life-satisfaction",
             "question": "How satisfied were you with the social scene at your college?",
-            "type": "choice",
+            "type": "slider",
+            "displayType": "satisfaction",
             "answers": ["Not at all", "Somewhat Satisfied", "Satisfied", "Fairly Satisfied", "Very Satisfied"]
         }, {
             "id": "gender-ratio",
