@@ -285,7 +285,7 @@
             "question": "Where was your high school located?",
             "type": "text"
         }, {
-            "id": "high-school-location",
+            "id": "high-school-name",
             "question": "What was the name of your high school?",
             "type": "text"
         }],
