@@ -20,7 +20,7 @@ services:
     volumes:
       - ./web-api:/usr/src/app
       - ./assets:/usr/src/app/assets
-    command: "/bin/bash -c \"cd /usr/src/app && npm start\""
+    command: "/bin/bash -c \"cd /usr/src/app && sleep 3 && npm start\""
     depends_on:
       - postgres
       - redis
