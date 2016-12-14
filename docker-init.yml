@@ -1,0 +1,52 @@
+version: '2'
+services:
+  web-client:
+    image: node:6.5.0
+    network_mode: host
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web-client:/usr/src/app
+      - ./assets:/usr/src/app/assets
+    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm run build:dll\""
+  web-api:
+    image: node:6.5.0
+    network_mode: host
+    env_file: development.env
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./web-api:/usr/src/app
+      - ./assets:/usr/src/app/assets
+    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm run build\""
+  ml-predictor:
+    image: node:6.5.0
+    network_mode: host
+    env_file: development.env
+    volumes:
+      - ./ml-predictor:/usr/src/app
+    working_dir: /usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && npm install\""
+  survey-training-preprocessor:
+    image: python:3.5
+    network_mode: host
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./survey-training-preprocessor:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt\""
+    env_file: development.env
+  college-training-preprocessor:
+    image: python:2.7
+    network_mode: host
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./college-training-preprocessor:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt\""
+    env_file: development.env
+  predictor-preprocessor:
+    image: python:3.5
+    network_mode: host
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./predictor-preprocessor:/usr/src/app
+    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt\""
