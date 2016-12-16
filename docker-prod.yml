@@ -7,7 +7,7 @@ services:
     volumes:
       - ./web-client:/usr/src/app
       - ./assets:/usr/src/app/assets
-    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm run build:dll && npm start\""
+    command: "/bin/bash -c \"cd /usr/src/app && npm start\""
     depends_on:
       - web-api
   web-api:
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./web-api:/usr/src/app
       - ./assets:/usr/src/app/assets
-    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm run build && npm run start\""
+    command: "/bin/bash -c \"cd /usr/src/app && npm start\""
     depends_on:
       - postgres
       - redis
@@ -28,7 +28,7 @@ services:
     volumes:
       - ./ml-predictor:/usr/src/app
     working_dir: /usr/src/app
-    command: "/bin/bash -c \"cd /usr/src/app && npm install && npm run start\""
+    command: "/bin/bash -c \"cd /usr/src/app && sleep 3 && npm start\""
     depends_on:
       - rabbitmq
   postgres:
@@ -41,10 +41,13 @@ services:
       - "6379"
   survey-training-preprocessor:
     image: python:3.5
+    environment:
+      PYTHONUSERBASE: /usr/src/app/vendor
+      PYTHONPATH: ./survey-training-preprocessor
     volumes:
       - ./assets:/usr/src/app/assets
       - ./survey-training-preprocessor:/usr/src/app
-    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u preprocessor.py\""
+    command: "/bin/bash -c \"cd /usr/src/app && python -u preprocessor.py\""
     depends_on:
       - postgres
       - redis
@@ -68,10 +71,13 @@ services:
       - web-api
   college-training-preprocessor:
     image: python:2.7
+    environment:
+      PYTHONUSERBASE: /usr/src/app/vendor
+      PYTHONPATH: ./survey-training-preprocessor
     volumes:
       - ./assets:/usr/src/app/assets
       - ./college-training-preprocessor:/usr/src/app
-    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u college_preprocessor.py\""
+    command: "/bin/bash -c \"cd /usr/src/app && python -u college_preprocessor.py\""
     depends_on:
       - postgres
       - redis
@@ -80,10 +86,13 @@ services:
   predictor-preprocessor:
     env_file: production.env
     image: python:3.5
+    environment:
+      PYTHONUSERBASE: /usr/src/app/vendor
+      PYTHONPATH: ./survey-training-preprocessor
     volumes:
       - ./assets:/usr/src/app/assets
       - ./predictor-preprocessor:/usr/src/app
-    command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt && python -u predictor-preprocessor.py\""
+    command: "/bin/bash -c \"cd /usr/src/app && python -u predictor-preprocessor.py\""
     depends_on:
       - redis
       - rabbitmq

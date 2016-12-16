@@ -17,4 +17,7 @@ Development repository for the okcollege predictive AI high school counselor pro
 
 1. Clone this repository (we'll call the directory `okcollege`)
 2. Run `git submodule init` then `git submodule update --recursive`
-3. Start the server with `docker-compose up`
+3. Include proprietary colleges.csv in `./assets/`
+4. Init installs with `./bin/okcollege-init` (only re-run on submodule update)
+5. Start the server with `./bin/okcollege`
+6. Run `./bin/okc-psql-init` if the database needs to be generated
