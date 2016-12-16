@@ -20,4 +20,4 @@ Development repository for the okcollege predictive AI high school counselor pro
 3. Include proprietary colleges.csv in `./assets/`
 4. Init installs with `./bin/okcollege-init` (only re-run on submodule update)
 5. Start the server with `./bin/okcollege`
-6. Run `./bin/okc-psql` if the database needs to be generated
+6. Run `./bin/okc-psql-init` if the database needs to be generated
