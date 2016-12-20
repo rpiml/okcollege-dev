@@ -56,3 +56,17 @@ services:
       - ./assets:/usr/src/app/assets
       - ./predictor-preprocessor:/usr/src/app
     command: "/bin/bash -c \"cd /usr/src/app && pip install --upgrade pip && pip install -r requirements.txt --user\""
+  postgres_server:
+    image: postgres
+    network_mode: host
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+  postgres_client:
+    image: postgres
+    network_mode: host
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+      - ./bin/db_scripts/create_databases.sql:/usr/src/create_databases.sql
+    command: "/bin/bash -c \"psql -h localhost -U postgres -f /usr/src/create_databases.sql\""
+    depends_on:
+      - postgres_server
