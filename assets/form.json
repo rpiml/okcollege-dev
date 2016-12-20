@@ -107,13 +107,7 @@
             "hasOther": false,
             "answers": ["yes", "no"]
         }],
-        "next": [{
-            "condition": "took-SAT == \"yes\" ",
-            "page": "SAT-scores"
-        }, {
-            "condition": "true",
-            "page": "ACT"
-        }]
+        "next": "SAT-scores"
     }, {
         "id": "SAT-scores",
         "questions": [{
@@ -145,13 +139,7 @@
             "hasOther": false,
             "answers": ["yes", "no"]
         }],
-        "next": [{
-            "condition": "took-ACT == \"yes\"",
-            "page": "ACT-scores"
-        }, {
-            "condition": "true",
-            "page": "miscellaneous"
-        }]
+        "next": "ACT-scores"
     }, {
         "id": "ACT-scores",
         "questions": [{
