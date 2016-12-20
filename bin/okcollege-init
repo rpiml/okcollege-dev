@@ -2,4 +2,6 @@
 
 cd "$(dirname "$0")"
 cd ..
-docker-compose -f docker-init.yml up
+docker-compose -f docker-init.yml up web-client web-api ml-predictor survey-training-preprocessor college-training-preprocessor predictor-preprocessor
+# init postgres database
+docker-compose -f docker-init.yml up postgres_client
