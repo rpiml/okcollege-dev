@@ -16,3 +16,7 @@
 [submodule "web-client"]
 	path = web-client
 	url = git@github.com:rpiml/okcollege-web-client.git
+[submodule "wiki"]
+	path = wiki
+	url = git@github.com:rpiml/okcollege-dev.wiki.git
+	branch = master
